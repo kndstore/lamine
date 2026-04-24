@@ -1,5 +1,5 @@
 import { useCart } from '../context/CartContext';
-import { Mail, ShoppingCart, Trash2, ArrowRight } from 'lucide-react';
+import { Mail, ShoppingCart, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Checkout = () => {
