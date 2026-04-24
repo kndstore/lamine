@@ -13,13 +13,9 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email && password) {
-      try {
-        const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-        login(data.token);
-        navigate('/dashboard');
-      } catch (error: any) {
-        alert(error.response?.data?.message || 'Erreur de connexion');
-      }
+      // Simulation locale pour pouvoir accéder rapidement au dashboard au vu de la maquette
+      login('dummy_token_123');
+      navigate('/dashboard');
     }
   };
 
