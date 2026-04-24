@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Lock, Mail, User } from 'lucide-react';
-import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 
 const Register = () => {
@@ -17,22 +16,13 @@ const Register = () => {
     e.preventDefault();
     setLoading(true);
     
-    try {
-      // Appel API réel vers MongoDB
-      const { data } = await axios.post('http://localhost:5000/api/auth/register', { 
-        name, 
-        email, 
-        password 
-      });
-      
-      // La création renvoie le token, on log directement l'utilisateur
-      login(data.token);
-      navigate('/dashboard'); // Redirection automatique vers le tableau de bord
-    } catch (error: any) {
-      alert(error.response?.data?.message || "Erreur inattendue lors de l'inscription");
-    } finally {
+    // Simulation d'un appel réseau
+    setTimeout(() => {
       setLoading(false);
-    }
+      // Simulation locale pour accéder au dashboard
+      login('dummy_token_456');
+      navigate('/dashboard');
+    }, 500);
   };
 
   return (
